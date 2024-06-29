@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/env.js"></script>
+<script src="./js/auth.js"></script>
+<script src="./js/index.js"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="sticky top-0 left-0 bg-white shadow-lg flex justify-between items-center px-[10%] py-6">
+        <div class="flex items-center gap-2">
+            <img src="/images/logo.png" class="w-12" />
+            <h1 class="text-2xl font-bold">Ecom</h1>
+        </div>
+        <div class="flex gap-12 items-center">
+            <a href="/">Home</a>
+            <a href="/products.html">Products</a>
+            <div id="account-menu" class="flex gap-12 items-center"></div>
+        </div>
+    </nav>
+
+    <div class="justify-center items-center flex-col mt-24 hidden" id="product-not-found">
+        <i class="ri-database-2-fill text-6xl text-violet-600"></i>
+        <h1 class="text-4xl font-bold">Products Not Available</h1>
+    </div>
+
+    <div class="grid md:grid-cols-4 w-[90%] mx-auto my-16 gap-16" id="products-container">
+        
+    </div>
+</body>
+</html>

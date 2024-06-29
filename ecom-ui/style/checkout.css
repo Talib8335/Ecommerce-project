@@ -1,0 +1,4 @@
+#buy-button:hover {
+    animation: pulse;
+    animation-duration: 1s;
+}

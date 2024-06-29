@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="./js/env.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/signup.js"></script>
+</head>
+<body>
+    <div class="bg-gray-100 min-h-screen flex justify-center items-center animate__animated animate__fadeIn">
+        <div class="bg-white w-[450px] p-6 border shadow-lg animate__animated animate__fadeIn">
+            <img src="/images/register.svg" class="h-[150px]" />
+            <h1 class="font-semibold text-2xl text-center mb-5">Register Now !</h1>
+
+            <form class="flex flex-col gap-5" onsubmit="signup(event)">
+                <input 
+                    required
+                    name="fullname" 
+                    class="border border-gray-300 p-2 rounded" 
+                    placeholder="Fullname"
+                />
+
+                <input 
+                    required
+                    type="email"
+                    name="email" 
+                    class="border border-gray-300 p-2 rounded" 
+                    placeholder="Email"
+                />
+                <input 
+                    required
+                    name="password" 
+                    type="password" 
+                    class="border border-gray-300 p-2 rounded" 
+                    placeholder="Password"
+                />
+
+                <input 
+                    required
+                    name="mobile" 
+                    class="border border-gray-300 p-2 rounded" 
+                    placeholder="Enter mobile number"
+                />
+
+                <input 
+                    required
+                    name="address" 
+                    class="border border-gray-300 p-2 rounded" 
+                    placeholder="Enter postal address"
+                />
+
+                <div id="signup-form">
+                        
+                </div>
+                <button class="bg-[#6C63FF] text-white rounded py-2 px-6 w-fit">Signup</button>
+            </form>
+            <div class="mt-2">
+                Already have an account ? <a href="/login.html" class="text-blue-600 font-semibold">Login now</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

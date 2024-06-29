@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link href="style/checkout.css" rel="stylesheet"></link>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="./js/env.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/checkout.js"></script>
+</head>
+<body>
+    <div class="bg-gray-200 h-screen flex justify-center items-center">
+        <div class="bg-white w-[720px] rounded shadow">
+            <div class="flex">
+                <img src="/images/products/product-avt.png" class="w-6/12" id="product-pic" />
+                <div class="p-6">
+                    <h1 class="text-3xl font-semibold capitalize" id="title"></h1>
+                    <p class="text-gray-500 mb-6" id="description"></p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <h1 class="font-bold">Price</h1>
+                        <label id="price"></label>
+
+                        <h1 class="font-bold">Discount</h1>
+                        <label id="discount"></label>
+                    </div>
+                    <hr class="mt-6 mb-4" />
+                    <div class="grid grid-cols-2 gap-2">
+                        <h1 class="font-bold">Payable Amount</h1>
+                        <label id="total"></label>
+                    </div>
+                    <button class="bg-violet-600 w-full py-3 mt-6 font-bold text-lg text-white rounded" id="buy-button" onclick="buyNow()">Buy Now</button>
+                    <form class="flex mt-6 gap-1" onsubmit="applyCoupon(event)">
+                        <input 
+                            id="coupon"
+                            required
+                            placeholder="Enter coupon code"
+                            class="border border-gray-300 rounded p-3 flex-1"
+                        />
+                        <button class="bg-rose-600 text-white rounded px-4">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="../js/env.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="./admin.js"></script>
+</head>
+<body>
+    <div class="bg-gray-200 min-h-screen py-16">
+        <div class="bg-white w-10/12 mx-auto shadow-lg">
+            <header 
+                class="h-[200px] flex items-center justify-center"
+                style="background-image: linear-gradient( 179.7deg,  rgba(249,21,215,1) 1.1%, rgba(22,0,98,1) 99% );"
+            >
+                <h1 class="text-white font-bold text-4xl">Admin Console</h1>
+            </header>
+            <div class="p-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <img src="/images/logo.png" class="w-12" />
+                        <h1 class="text-2xl font-bold">Ecom</h1>
+                    </div>
+
+                    <div class="flex gap-8">
+                        <button onclick="onTap('products')">Products</button>
+                        <button onclick="onTap('customers')">Customers</button>
+                        <button onclick="onTap('orders')">Orders</button>
+                        <button onclick="onTap('payments')">Payments</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-8 pb-8">
+                <!--Customers-->
+                <div id="customers" class="hidden tab-data animate__animated animate__fadeIn">
+                    <div class="flex items-center gap-8">
+                        <div class="border-b flex-grow"></div>
+                        <h1 class="text-lg font-semibold">Customer</h1>
+                        <div class="border-b flex-grow"></div>
+                    </div>
+                    <div class="my-8">
+                        <table class="w-full" id="customer-table">
+                            <tr 
+                                class="text-left border-b"
+                            >
+                                <th class="py-4 pl-4">Customer`s Name</th>
+                                <th class="py-4">Email</th>
+                                <th class="py-4">Mobile</th>
+                                <th class="py-4">Address</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <!--Products-->
+                <div class="tab-data animate__animated animate__fadeIn" id="products">
+                    <div class="flex items-center gap-8">
+                        <div class="border-b flex-grow"></div>
+                        <h1 class="text-lg font-semibold">Products</h1>
+                        <div class="border-b flex-grow"></div>
+                    </div>
+                    <button class="bg-violet-600 text-white py-2 px-6 rounded" onclick="openDrawer()">
+                        <i class="ri-function-add-line"></i>
+                        Add New Product
+                    </button>
+                    <div class="grid md:grid-cols-4 my-8 gap-12" id="products-container">
+                        
+                    </div>
+                </div>
+
+                <!--Orders-->
+                <div class="hidden tab-data animate__animated animate__fadeIn" id="orders">
+                    <div class="flex items-center gap-8">
+                        <div class="border-b flex-grow"></div>
+                        <h1 class="text-lg font-semibold">Orders</h1>
+                        <div class="border-b flex-grow"></div>
+                    </div>
+                    <div class="my-8 overflow-auto">
+                        <table class="min-w-max" id="orders-table">
+                            <tr 
+                                class="text-left border-b"
+                            >
+                                <th class="py-4 pr-16">Ordered at</th>
+                                <th class="py-4 pr-16">Product</th>
+                                <th class="py-4 pr-16">Price</th>
+                                <th class="py-4 pr-16">Discount</th>
+                                <th class="py-4 pr-16">Customer`s Name</th>
+                                <th class="py-4 pr-16">Email</th>
+                                <th class="py-4 pr-16">Mobile</th>
+                                <th class="py-4 pr-16">Address</th>
+                                <th class="py-4 pr-16">Status</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--Payments-->
+                <div class="hidden tab-data animate__animated animate__fadeIn" id="payments">
+                    <div class="flex items-center gap-8">
+                        <div class="border-b flex-grow"></div>
+                        <h1 class="text-lg font-semibold">Payments</h1>
+                        <div class="border-b flex-grow"></div>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-8 mt-8">
+                        <div class="bg-rose-600 px-8 py-6 rounded-md space-y-3">
+                            <h1 class="text-white font-semibold text-2xl">Payments</h1>
+                            <div class="text-white flex items-center gap-3">
+                                <i class="ri-bank-card-line text-5xl"></i>
+                                <label class="text-4xl font-bold" id="no-of-payments">0</label>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-600 px-8 py-6 rounded-md space-y-3">
+                            <h1 class="text-white font-semibold text-2xl">Total Sales</h1>
+                            <div class="text-white flex items-center gap-3">
+                                <i class="ri-bank-card-line text-5xl"></i>
+                                <label class="text-4xl font-bold" id="total-sales">0</label>
+                            </div>
+                        </div>
+
+                        <div class="bg-pink-600 px-8 py-6 rounded-md space-y-3">
+                            <h1 class="text-white font-semibold text-2xl">Total Fee</h1>
+                            <div class="text-white flex items-center gap-3">
+                                <i class="ri-bank-card-line text-5xl"></i>
+                                <label class="text-4xl font-bold" id="total-fee">0</label>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-600 px-8 py-6 rounded-md space-y-3">
+                            <h1 class="text-white font-semibold text-2xl">Payment Tax</h1>
+                            <div class="text-white flex items-center gap-3">
+                                <i class="ri-bank-card-line text-5xl"></i>
+                                <label class="text-4xl font-bold" id="total-tax">0</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="my-8">
+                        <table class="w-full" id="payments-table">
+                            <tr 
+                                class="text-left border-b"
+                            >
+                                <th class="py-4 pl-4">Customer`s Name</th>
+                                <th class="py-4">Email</th>
+                                <th class="py-4">Mobile</th>
+                                <th class="py-4">Address</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="drawer" class="fixed overflow-auto right-0 top-0 w-0 bg-white h-full shadow-2xl border-l border-gray-300">
+            <button class="absolute top-16 right-16 font-bold" onclick="closeDrawer()">
+                <i class="ri-close-large-line"></i>
+            </button>
+            <h1 class="text-4xl font-bold">New Product</h1>
+            <p class="text-gray-600 text-lg">Enter your product details to publish on website</p>
+            <form class="mt-8 grid grid-cols-3 gap-6" onsubmit="createProduct(event)" id="product-form">
+                <div class="flex flex-col gap-2 col-span-3">
+                    <label class="text-lg font-semibold">Title</label>
+                    <input 
+                        required
+                        type="text"
+                        name="title"
+                        class="p-3 rounded border border-gray-300"
+                        placeholder="Men`s blue shirt light"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-lg font-semibold">Quantity</label>
+                    <input 
+                        required
+                        type="number"
+                        name="quantity"
+                        class="p-3 rounded border border-gray-300"
+                        placeholder="999"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-lg font-semibold">Price</label>
+                    <input 
+                        required
+                        type="number"
+                        name="price"
+                        class="p-3 rounded border border-gray-300"
+                        placeholder="999"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-lg font-semibold">Discount</label>
+                    <input 
+                        required
+                        type="number"
+                        name="discount"
+                        class="p-3 rounded border border-gray-300"
+                        placeholder="50"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <div>
+                        <label class="text-lg font-semibold">Brand</label>
+                        <button onclick="showCreateBrand()" type="button">
+                            <i class="ri-edit-box-line"></i>
+                        </button>
+                    </div>
+                    <div class="hidden" id="brand-creator">
+                        <input placeholder="Brand name" class="p-3 rounded border border-gray-300" id="brand" />
+                        <button type="button" class="p-3 rounded bg-violet-600 text-white" onclick="createBrand()">Add</button>
+                    </div>
+                    <select class="p-3 rounded border border-gray-300" name="brand" id="choose-brand">
+                    </select>
+                </div>
+
+                <div class="flex flex-col gap-2 col-span-2">
+                    <div>
+                        <label class="text-lg font-semibold">Category</label>
+                        <button onclick="showCreateCategory()" type="button">
+                            <i class="ri-edit-box-line"></i>
+                        </button>
+                    </div>
+                    <div class="hidden" id="category-creator">
+                        <input placeholder="Category name" class="p-3 rounded border border-gray-300" id="category" />
+                        <button type="button" class="p-3 rounded bg-violet-600 text-white" onclick="createCategory()">Add</button>
+                    </div>
+                    <select class="p-3 rounded border border-gray-300" name="category" id="choose-category">
+                        <option>Choose a category</option>
+                    </select>
+                </div>
+                <div class="h-[350px] col-span-3">
+                    <div id="editor">
+                        
+                    </div>
+                </div>
+                <div>
+                    <button class="bg-violet-600 text-white font-semibold py-3 px-8 rounded mt-12">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="shadow-lg fixed bottom-8 right-8 p-4 bg-white rounded-md w-[350px] border hidden" id="uploader">
+            <h1 class="text-lg font-semibold">Uploading</h1>
+            <p class="text-gray-600 text-sm" id="filename"></p>
+            <div class="bg-gray-200 h-2 mt-3">
+                <div class="w-0 bg-green-400 h-full" id="progress-bar"></div>
+            </div>
+            <div class="mt-2">
+                <label id="loaded">00:00</label>
+                /
+                <label id="total">00:00</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
