@@ -1,0 +1,29 @@
+{
+  "errors": {
+    "user": {
+      "name": "ValidatorError",
+      "message": "Path `user` is required.",
+      "properties": {
+        "message": "Path `user` is required.",
+        "type": "required",
+        "path": "user"
+      },
+      "kind": "required",
+      "path": "user"
+    },
+    "product": {
+      "name": "ValidatorError",
+      "message": "Path `product` is required.",
+      "properties": {
+        "message": "Path `product` is required.",
+        "type": "required",
+        "path": "product"
+      },
+      "kind": "required",
+      "path": "product"
+    }
+  },
+  "_message": "Order validation failed",
+  "name": "ValidationError",
+  "message": "Order validation failed: user: Path `user` is required., product: Path `product` is required."
+}

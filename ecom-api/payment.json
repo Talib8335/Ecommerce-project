@@ -1,0 +1,53 @@
+{
+  "entity": "event",
+  "account_id": "acc_Nu3rBNdOp8D2Kv",
+  "event": "payment.authorized",
+  "contains": [
+    "payment"
+  ],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_OJXArJBxQSB7yT",
+        "entity": "payment",
+        "amount": 99900,
+        "currency": "INR",
+        "status": "authorized",
+        "order_id": "order_OJXAeNrhkM46dU",
+        "invoice_id": null,
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": "men blue shirt",
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "success@razorpay",
+        "email": "ersaurav@gmail.com",
+        "contact": "+919472395194",
+        "notes": {
+          "name": "er suarav",
+          "userId": "511151"
+        },
+        "fee": null,
+        "tax": null,
+        "error_code": null,
+        "error_description": null,
+        "error_source": null,
+        "error_step": null,
+        "error_reason": null,
+        "acquirer_data": {
+          "rrn": "343834063080",
+          "upi_transaction_id": "4377F4791DBCFBF5C0D8AC20ABCD4F50"
+        },
+        "created_at": 1717689769,
+        "upi": {
+          "vpa": "success@razorpay"
+        }
+      }
+    }
+  },
+  "created_at": 1717689769
+}
