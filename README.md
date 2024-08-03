@@ -15,9 +15,20 @@ This is a basic eCommerce platform Project. The project follows the MVC architec
 
 ## Tech Stack
 
-**Front-End:** Html, Javascript, TailwindCSS
+## Front-End
 
-**Back-end:** Node, Express, MongoDB
+  ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat&logo=html5&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+  ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white)
+
+## Back-End
+
+ ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+ ![Express](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
+ ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
+ ![Nodemon](https://img.shields.io/badge/Nodemon-76D04B?style=flat&logo=nodemon&logoColor=white)
+
 
 
 ## Environment Variables
@@ -33,7 +44,7 @@ Generate the Test Razorpay_key_id & key_secrete .
 
 `SMTP_PASSWORD`
 
-## Run Locally
+## Not sure where to start?  Run Locally
 
 Clone the project
 
