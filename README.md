@@ -8,7 +8,7 @@ This is a basic eCommerce platform project that follows the MVC architecture and
 - Single login & signup page for User and Admin
 - Authentication and Authorization mechanisms using JWT session strategy
 - Middleware for protected routes
-– Added CLI-based authorization for administrators
+- Added CLI-based authorization for administrators
 - Payment gateway integration with Webhook
 - Email services (Nodemailer)
 
