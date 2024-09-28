@@ -1,5 +1,7 @@
 # Ecommerce Project
 
+![mockuper](https://github.com/user-attachments/assets/c9230304-3b74-40d6-98f5-01df965d690c)
+
 This is a basic eCommerce platform project that follows the MVC architecture and implements a Role-Based Access Control (RBAC) design pattern. It also includes integration with a payment gateway to facilitate online transactions.
 
 ## Features
@@ -76,7 +78,7 @@ To run this project, you will need to add the following environment variables to
     ___as : Generated key
     ```
 
-## Snapshort
+## Snapshorts
 
 ### Signup Page
 ![Signup Page](https://github.com/user-attachments/assets/c63aac15-a94e-44d9-b95e-62b2e2e69f12)
